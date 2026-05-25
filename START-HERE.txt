@@ -1,0 +1,53 @@
+================================================================================
+  DMMHS COMMAND CENTER — DOWNLOADABLE PACKAGE
+  Diosdado Macapagal Memorial High School · School Performance Analytics
+================================================================================
+
+QUICK START (choose one method)
+--------------------------------------------------------------------------------
+
+METHOD 1 — OFFLINE (no install, double-click)
+  1. Open the "public" folder
+  2. Double-click:  DMMHS-Dashboard.html
+  3. Sign in on the login page (demo mode works offline):
+       admin@dmmhs.edu.ph / admin123
+       editor@dmmhs.edu.ph / editor123
+       viewer@dmmhs.edu.ph / viewer123
+
+METHOD 2 — FULL VERSION (SQLite database + login)  RECOMMENDED
+  1. Double-click:  OPEN-DASHBOARD.bat
+     For HTTPS + security headers:  OPEN-DASHBOARD.bat --https
+     (requires Node.js — download from https://nodejs.org if prompted)
+  2. Your browser opens http://localhost:3847 (or https:// with --https)
+  3. Sign in with the accounts above
+  4. Data is stored in:  server\dmmhs.db
+
+METHOD 3 — MANUAL SERVER
+  1. Open Command Prompt in this folder
+  2. Run:  npm install
+  3. Run:  npm start
+  4. Open http://localhost:3847 in your browser
+
+--------------------------------------------------------------------------------
+SECURITY (production)
+  • Copy .env.example to .env — run: npm run generate-secrets
+  • JWT_SECRET and SESSION_SECRET required (64+ characters each)
+  • HTTPS_KEY_PATH and HTTPS_CERT_PATH required when NODE_ENV=production
+  • No hardcoded secrets — server exits if production secrets are missing
+  • Rate limiting on login (default: 5 attempts / 15 min) — see server/logs/rate-limit.log
+  • Batch flags: --rate-limit-strict, --rate-limit-off, --rate-limit-login=10
+
+--------------------------------------------------------------------------------
+DATABASE
+  • SQLite file: server\dmmhs.db (created automatically on first run)
+  • Tables: users, master_data, activity_logs
+  • Browser also caches data in localStorage for fast loading
+
+WHAT'S INCLUDED
+  • Login page with school logo
+  • All dashboard charts, tables, KPIs, and data
+  • SHS strand enrollments, reports, Data Admin
+  • CRUD editing, export Excel/JSON, print, Smart Analytics
+  • DMMHS logo branding and dark/light themes
+
+================================================================================
